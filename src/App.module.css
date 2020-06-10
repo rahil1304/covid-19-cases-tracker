@@ -18,6 +18,10 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.flexboxcontainer {
+  display: flex;
+  flex-direction: row;
+}
 
 @media (max-width: 770px) {
   .container {
@@ -25,5 +29,10 @@ body {
   }
   .image {
     width: 100%;
+  }
+  .flexboxcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
