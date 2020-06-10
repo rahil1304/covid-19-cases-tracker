@@ -17,3 +17,9 @@
 .death {
   border-bottom: 10px solid rgba(240, 21, 21, 0.849);
 }
+
+@media (max-width: 770px) {
+  .card {
+    margin: 2% 0 !important;
+  }
+}
