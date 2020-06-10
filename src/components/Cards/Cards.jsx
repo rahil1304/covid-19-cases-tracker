@@ -20,7 +20,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
         >
           <CardContent>
             <Typography color='textSecondary' gutterBottom>
-              Global Cases
+              Total Cases
             </Typography>
             <Typography variant='h5'>
               <CountUp
@@ -33,9 +33,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
             <Typography color='textSecondary'>
               {new Date(lastUpdate).toDateString()}
             </Typography>
-            <Typography variant='body2'>
-              Number of Active Cases of Covid-19
-            </Typography>
+            <Typography variant='body2'>Number of Cases of Covid-19</Typography>
           </CardContent>
         </Grid>
         <Grid
