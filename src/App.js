@@ -41,9 +41,10 @@ const DarkModeToggler = () => {
         <Toolbar>
           <div className={styles.flexboxcontainer}>
             <img src={imagesrc} className={styles.image} alt='COVID-19' />
-            <div></div>
+
             <DarkModeToggle checked={darkState} onChange={handleThemeChange} />
           </div>
+
           {/* <Switch checked={darkState} onChange={handleThemeChange} /> */}
         </Toolbar>
         <App darkState={darkState} />

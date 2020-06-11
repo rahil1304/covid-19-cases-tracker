@@ -21,6 +21,7 @@ body {
 .flexboxcontainer {
   display: flex;
   flex-direction: row;
+  flex: 1;
 }
 
 @media (max-width: 770px) {
@@ -34,6 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1;
   }
 }
 
