@@ -3,6 +3,9 @@ import { fetchDailyData } from "../../api";
 import { Line, Bar, defaults } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
+defaults.global.defaultColor = "green";
+console.log(defaults);
+
 const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
   const [dailyData, setDailyData] = useState([]);
   useEffect(() => {
@@ -17,6 +20,8 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
     <Line
       data={{
         labels: dailyData.map(({ date }) => date),
+        scaleFontColor: "red",
+
         datasets: [
           {
             data: dailyData.map(({ confirmed }) => confirmed),
@@ -55,6 +60,43 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
             pointHitRadius: 10,
           },
         ],
+      }}
+      options={{
+        legend: {
+          labels: {
+            fontColor: "white",
+          },
+        },
+        title: {
+          display: true,
+          fontColor: "white",
+          text: "Global Cases of Covid-19",
+        },
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+                fontColor: "white",
+              },
+              gridLines: {
+                //color: "white",
+                zeroLineColor: "white",
+              },
+            },
+          ],
+          xAxes: [
+            {
+              ticks: {
+                fontColor: "white",
+              },
+              gridLines: {
+                //color: "white",
+                zeroLineColor: "white",
+              },
+            },
+          ],
+        },
       }}
     />
   ) : null;
