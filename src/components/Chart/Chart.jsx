@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { fetchDailyData } from "../../api";
-import { Line, Bar, defaults } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
-defaults.global.defaultColor = "green";
-console.log(defaults);
-
-const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
+const Chart = ({
+  data: { confirmed, recovered, deaths },
+  country,
+  darkState,
+}) => {
   const [dailyData, setDailyData] = useState([]);
   useEffect(() => {
     const fetchAPI = async () => {
@@ -15,12 +16,13 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
     //console.log(dailyData);
     fetchAPI();
   }, []);
+  const darkorlight = darkState ? "white" : "black";
 
   const lineChart = dailyData.length ? (
     <Line
       data={{
         labels: dailyData.map(({ date }) => date),
-        scaleFontColor: "red",
+        scaleFontColor: "rgba(240, 21, 21, 0.849)",
 
         datasets: [
           {
@@ -44,7 +46,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
           {
             data: dailyData.map(({ deaths }) => deaths),
             label: "Deaths",
-            borderColor: ["red"],
+            borderColor: "red",
             backgroundColor: "rgba(255,0,0,0.5)",
             borderWidth: 3,
             fill: false,
@@ -64,12 +66,12 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
       options={{
         legend: {
           labels: {
-            fontColor: "white",
+            fontColor: darkorlight,
           },
         },
         title: {
           display: true,
-          fontColor: "white",
+          fontColor: darkorlight,
           text: "Global Cases of Covid-19",
         },
         scales: {
@@ -77,22 +79,22 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
             {
               ticks: {
                 beginAtZero: true,
-                fontColor: "white",
+                fontColor: darkorlight,
               },
               gridLines: {
-                //color: "white",
-                zeroLineColor: "white",
+                //color: {darkorlight},
+                zeroLineColor: darkorlight,
               },
             },
           ],
           xAxes: [
             {
               ticks: {
-                fontColor: "white",
+                fontColor: darkorlight,
               },
               gridLines: {
-                //color: "white",
-                zeroLineColor: "white",
+                //color: {darkorlight},
+                zeroLineColor: darkorlight,
               },
             },
           ],
@@ -108,7 +110,8 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
         labels: ["Total Cases", "Recovered", "Deaths"],
         datasets: [
           {
-            label: "People",
+            label: "Total Covid-19 Cases",
+            display: true,
             backgroundColor: [
               "rgba(0, 0, 255, 0.5)",
               "#17e239c4",
@@ -120,8 +123,41 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
         ],
       }}
       options={{
-        legend: { display: false },
-        title: { display: true, text: `Current state in ${country}` },
+        legend: {
+          labels: {
+            fontColor: darkorlight,
+          },
+        },
+        title: {
+          display: true,
+          text: `Current state in ${country}`,
+          fontColor: darkorlight,
+        },
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+                fontColor: darkorlight,
+              },
+              gridLines: {
+                //color: {darkorlight},
+                zeroLineColor: darkorlight,
+              },
+            },
+          ],
+          xAxes: [
+            {
+              ticks: {
+                fontColor: darkorlight,
+              },
+              gridLines: {
+                //color: {darkorlight},
+                zeroLineColor: darkorlight,
+              },
+            },
+          ],
+        },
       }}
     />
   ) : null;
@@ -130,5 +166,5 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
     <div className={styles.container}>{country ? barChart : lineChart}</div>
   );
 };
-//Chart.defaults.global.defaultFontColor = "red";
+
 export default Chart;

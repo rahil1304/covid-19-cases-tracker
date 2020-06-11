@@ -8,7 +8,7 @@ import styles from "../App.module.css";
 import { Toolbar, Typography } from "@material-ui/core";
 import coronaImage from "../images/image.png";
 
-function DarkModeToggler() {
+const DarkModeToggler = () => {
   const [darkState, setDarkState] = useState(false);
   const palletType = darkState ? "dark" : "light";
   const mainPrimaryColor = darkState ? "#212121" : "#EEEEEE";
@@ -27,6 +27,7 @@ function DarkModeToggler() {
   const handleThemeChange = () => {
     setDarkState(!darkState);
   };
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
@@ -38,11 +39,12 @@ function DarkModeToggler() {
             </div>
           </Typography>
           <DarkModeToggle checked={darkState} onChange={handleThemeChange} />
+
           {/* <Switch checked={darkState} onChange={handleThemeChange} /> */}
         </Toolbar>
       </AppBar>
     </ThemeProvider>
   );
-}
+};
 
 export default DarkModeToggler;
