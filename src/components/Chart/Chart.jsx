@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchDailyData } from "../../api";
-import { Line, Bar } from "react-chartjs-2";
+import { Line, Bar, defaults } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
 const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
@@ -22,14 +22,37 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
             data: dailyData.map(({ confirmed }) => confirmed),
             label: "Global Cases",
             borderColor: "#3333ff",
-            fill: true,
+            borderWidth: 3,
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderCapStyle: "butt",
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: "miter",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
           },
           {
             data: dailyData.map(({ deaths }) => deaths),
             label: "Deaths",
-            borderColor: "red",
+            borderColor: ["red"],
             backgroundColor: "rgba(255,0,0,0.5)",
-            fill: true,
+            borderWidth: 3,
+            fill: false,
+            lineTension: 0.1,
+            borderCapStyle: "butt",
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: "miter",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
           },
         ],
       }}
@@ -49,6 +72,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
               "#17e239c4",
               "rgba(240, 21, 21, 0.849)",
             ],
+
             data: [confirmed.value, recovered.value, deaths.value],
           },
         ],
@@ -64,5 +88,5 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
     <div className={styles.container}>{country ? barChart : lineChart}</div>
   );
 };
-
+//Chart.defaults.global.defaultFontColor = "red";
 export default Chart;
