@@ -12,8 +12,6 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-//import DarkModeToggler from "./components/DarkModeToggler";
-
 const DarkModeToggler = () => {
   const [darkState, setDarkState] = useState(false);
   const palletType = darkState ? "dark" : "light";
