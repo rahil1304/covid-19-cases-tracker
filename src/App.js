@@ -18,7 +18,7 @@ const DarkModeToggler = () => {
   const mainPrimaryColor = darkState ? "#212121" : "#EEEEEE";
   const mainSecondaryColor = darkState ? "#EEEEEE" : "#212121";
   const imagesrc = darkState ? coronaImage2 : coronaImage1;
-  //console.log(darkState);
+
   const darkTheme = createMuiTheme({
     palette: {
       type: palletType,
