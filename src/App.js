@@ -6,10 +6,10 @@ import DarkModeToggle from "react-dark-mode-toggle";
 import { fetchData } from "./api";
 import { Toolbar } from "@material-ui/core";
 import Switch from "@material-ui/core/Switch";
-import coronaImage1 from "./images/image.png";
-import coronaImage2 from "./images/image2.png";
-import test from "./images/finalA.png";
-import test2 from "./images/finalB.png";
+//import coronaImage1 from "./images/image.png";
+//import coronaImage2 from "./images/image2.png";
+import final1 from "./images/final11.png";
+import final2 from "./images/final22.png";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -19,8 +19,8 @@ const DarkModeToggler = () => {
   const palletType = darkState ? "dark" : "light";
   const mainPrimaryColor = darkState ? "#212121" : "#EEEEEE";
   const mainSecondaryColor = darkState ? "#EEEEEE" : "#212121";
-  const imagesrc = darkState ? coronaImage2 : coronaImage1;
-  //const imagesrc = darkState ? banner2 : banner;
+  // const imagesrc = darkState ? coronaImage2 : coronaImage1;
+  const imagesrc = darkState ? final2 : final1;
   const darkTheme = createMuiTheme({
     palette: {
       type: palletType,
