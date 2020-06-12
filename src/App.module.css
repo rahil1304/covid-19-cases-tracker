@@ -20,11 +20,20 @@ body {
 }
 .flexboxcontainer {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: row;
   flex: 1;
 }
+.appbar {
+  margin-right: auto;
+  padding: 10px;
+}
 
 @media (max-width: 770px) {
+  .body {
+    margin-top: -20px;
+  }
   .container {
     margin: 0 10%;
   }
@@ -35,11 +44,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1;
+    justify-content: center;
   }
-}
-
-.appbar {
-  margin-right: auto;
-  padding: 10px;
+  .appbar {
+    margin-right: auto;
+    padding: 10px;
+    padding-bottom: 50px;
+  }
 }

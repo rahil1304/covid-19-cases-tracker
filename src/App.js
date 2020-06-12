@@ -5,7 +5,7 @@ import DarkModeToggle from "react-dark-mode-toggle";
 
 import { fetchData } from "./api";
 import { Toolbar } from "@material-ui/core";
-import Switch from "@material-ui/core/Switch";
+//import Switch from "@material-ui/core/Switch";
 //import coronaImage1 from "./images/image.png";
 //import coronaImage2 from "./images/image2.png";
 import final1 from "./images/final11.png";
