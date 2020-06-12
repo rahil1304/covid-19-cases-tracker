@@ -64,6 +64,7 @@ const Chart = ({
         ],
       }}
       options={{
+        maintainAspectRatio: false,
         legend: {
           labels: {
             fontColor: darkorlight,
@@ -123,6 +124,7 @@ const Chart = ({
         ],
       }}
       options={{
+        maintainAspectRatio: false,
         legend: {
           labels: {
             fontColor: darkorlight,

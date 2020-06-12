@@ -5,6 +5,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  height: 500px;
 }
 @media (max-width: 770px) {
   .container {
@@ -13,5 +14,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    height: 300px;
   }
 }
