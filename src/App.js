@@ -1,4 +1,4 @@
-//import ReactGA from "react-ga";
+import ReactGA from "react-ga";
 import React, { Component, useState } from "react";
 import { Cards, Chart, CountryPicker } from "./components";
 import styles from "./App.module.css";
@@ -15,13 +15,13 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-// ReactGA.initialize("UA-169325813-1");
-// ReactGA.pageview("/homepage");
+ReactGA.initialize("UA-169325813-1");
+ReactGA.pageview("/homepage");
 
-// ReactGA.event({
-//   category: "User",
-//   action: "Toggle Dark Mode",
-// });
+ReactGA.event({
+  category: "User",
+  action: "Toggle Dark Mode",
+});
 
 const DarkModeToggler = () => {
   const [darkState, setDarkState] = useState(false);
