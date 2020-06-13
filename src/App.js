@@ -18,11 +18,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 ReactGA.initialize("UA-169325813-1");
 ReactGA.pageview("/homepage");
 
-ReactGA.event({
-  category: "User",
-  action: "Toggle Dark Mode",
-});
-
 const DarkModeToggler = () => {
   const [darkState, setDarkState] = useState(false);
   const palletType = darkState ? "dark" : "light";
@@ -43,6 +38,10 @@ const DarkModeToggler = () => {
   });
   const handleThemeChange = () => {
     setDarkState(!darkState);
+    ReactGA.event({
+      category: "User",
+      action: "Toggle Dark Mode",
+    });
   };
 
   return (
