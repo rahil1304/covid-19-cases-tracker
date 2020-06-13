@@ -1,4 +1,4 @@
-import ReactGA from "react-ga";
+//import ReactGA from "react-ga";
 import React, { Component, useState } from "react";
 import { Cards, Chart, CountryPicker } from "./components";
 import styles from "./App.module.css";
@@ -15,14 +15,13 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-ReactGA.initialize("UA-169325813-1");
-ReactGA.pageview("/homepage");
-const clickedDarkMode = () => {
-  ReactGA.event({
-    category: "User",
-    action: "Toggle Dark Mode",
-  });
-};
+// ReactGA.initialize("UA-169325813-1");
+// ReactGA.pageview("/homepage");
+
+// ReactGA.event({
+//   category: "User",
+//   action: "Toggle Dark Mode",
+// });
 
 const DarkModeToggler = () => {
   const [darkState, setDarkState] = useState(false);
@@ -53,11 +52,7 @@ const DarkModeToggler = () => {
         <Toolbar>
           <div className={styles.flexboxcontainer}>
             <img src={imagesrc} className={styles.image} alt='COVID-19' />
-            <DarkModeToggle
-              checked={darkState}
-              onChange={handleThemeChange}
-              onClick={clickedDarkMode}
-            />
+            <DarkModeToggle checked={darkState} onChange={handleThemeChange} />
           </div>
 
           {/* <Switch checked={darkState} onChange={handleThemeChange} /> */}
