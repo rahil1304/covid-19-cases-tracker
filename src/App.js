@@ -14,6 +14,7 @@ import final2 from "./images/final22.png";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { FadeTransform } from "react-animation-components";
 
 ReactGA.initialize("UA-169325813-1");
 ReactGA.pageview("/homepage");
