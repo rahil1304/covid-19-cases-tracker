@@ -42,5 +42,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "<h2> Covid-19 Cases Tracker </h2>",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahil1304/covid-19-cases-tracker.git"
+  },
+  "author": "Rahil Sarvaiya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahil1304/covid-19-cases-tracker/issues"
+  },
+  "homepage": "https://github.com/rahil1304/covid-19-cases-tracker#readme"
 }
