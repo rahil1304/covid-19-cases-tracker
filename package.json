@@ -8,9 +8,16 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
     "chart.js": "^2.9.3",
     "classnames": "^2.2.6",
+    "config": "^3.3.3",
     "dark-mode-toggle": "^0.6.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.7.0",
+    "gravatar": "^1.8.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.18",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-animation-components": "^3.0.0",
@@ -20,10 +27,13 @@
     "react-dom": "^16.13.1",
     "react-ga": "^3.0.0",
     "react-scripts": "3.4.1",
-    "recharts": "^1.8.5"
+    "recharts": "^1.8.5",
+    "request": "^2.88.2"
   },
   "scripts": {
     "start": "react-scripts start",
+    "startserver": "node server",
+    "server": "nodemon server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -42,5 +52,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "<h2> Covid-19 Cases Tracker </h2>",
+  "main": "server.js",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahil1304/covid-19-cases-tracker.git"
+  },
+  "author": "Rahil Sarvaiya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahil1304/covid-19-cases-tracker/issues"
+  },
+  "homepage": "https://github.com/rahil1304/covid-19-cases-tracker#readme"
 }
