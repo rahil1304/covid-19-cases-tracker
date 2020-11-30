@@ -31,7 +31,8 @@
     "request": "^2.88.2"
   },
   "scripts": {
-    "start": "node server",
+    "start": "react-scripts start",
+    "startserver": "node server",
     "server": "nodemon server",
     "build": "react-scripts build",
     "test": "react-scripts test",
