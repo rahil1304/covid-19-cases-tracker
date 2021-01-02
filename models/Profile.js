@@ -27,11 +27,11 @@ const ProfileSchema = new mongoose.Schema({
   },
   from: {
     type: Date,
-    required: true,
+    // required: true,
   },
   to: {
     type: Date,
-    required: true,
+    // required: true,
   },
   current: {
     type: Boolean,
@@ -39,7 +39,7 @@ const ProfileSchema = new mongoose.Schema({
   },
   admitted: {
     type: Boolean,
-    required: true,
+    // required: true,
   },
   medicines: {
     type: [String],
