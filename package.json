@@ -17,6 +17,7 @@
     "express-validator": "^6.7.0",
     "gravatar": "^1.8.1",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
     "mongoose": "^5.10.18",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -26,8 +27,14 @@
     "react-dark-mode-toggle": "0.0.5",
     "react-dom": "^16.13.1",
     "react-ga": "^3.0.0",
+    "react-moment": "^1.1.1",
+    "react-redux": "^7.2.3",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "recharts": "^1.8.5",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0",
     "request": "^2.88.2"
   },
   "scripts": {
@@ -55,6 +62,7 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "http://localhost:5000",
   "description": "<h2> Covid-19 Cases Tracker </h2>",
   "main": "server.js",
   "devDependencies": {
