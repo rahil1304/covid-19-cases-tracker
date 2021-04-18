@@ -1,6 +1,7 @@
 import ReactGA from "react-ga";
 import React, { Component, useState } from "react";
 import { Cards, Chart, CountryPicker } from "./components";
+import NavbarComponent from "./components/Navbar";
 import styles from "./App.module.css";
 import DarkModeToggle from "react-dark-mode-toggle";
 
@@ -47,6 +48,7 @@ const DarkModeToggler = () => {
 
   return (
     <ThemeProvider theme={darkTheme}>
+      <NavbarComponent />
       <CssBaseline />
       <AppBar className={styles.appbar} position='static'>
         <Toolbar>
@@ -54,7 +56,6 @@ const DarkModeToggler = () => {
             <img src={imagesrc} className={styles.image} alt='COVID-19' />
             <DarkModeToggle checked={darkState} onChange={handleThemeChange} />
           </div>
-
           {/* <Switch checked={darkState} onChange={handleThemeChange} /> */}
         </Toolbar>
         <App darkState={darkState} />
