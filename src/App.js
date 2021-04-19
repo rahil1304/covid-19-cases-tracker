@@ -1,7 +1,10 @@
 import ReactGA from "react-ga";
 import React, { Component, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Cards, Chart, CountryPicker } from "./components";
 import NavbarComponent from "./components/Navbar";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
 import styles from "./App.module.css";
 import DarkModeToggle from "react-dark-mode-toggle";
 
@@ -46,20 +49,39 @@ const DarkModeToggler = () => {
   };
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <NavbarComponent />
-      <CssBaseline />
-      <AppBar className={styles.appbar} position='static'>
-        <Toolbar>
-          <div className={styles.flexboxcontainer}>
-            <img src={imagesrc} className={styles.image} alt='COVID-19' />
-            <DarkModeToggle checked={darkState} onChange={handleThemeChange} />
-          </div>
-          {/* <Switch checked={darkState} onChange={handleThemeChange} /> */}
-        </Toolbar>
-        <App darkState={darkState} />
-      </AppBar>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={darkTheme}>
+        <NavbarComponent />
+        <CssBaseline />
+        <Route
+          exact
+          path='/'
+          component={AppBar}
+          className={styles.appbar}
+          position='static'
+        >
+          {/* <AppBar className={styles.appbar} position='static'> */}
+          <Toolbar>
+            <div className={styles.flexboxcontainer}>
+              <img src={imagesrc} className={styles.image} alt='COVID-19' />
+              <DarkModeToggle
+                checked={darkState}
+                onChange={handleThemeChange}
+              />
+            </div>
+            {/* <Switch checked={darkState} onChange={handleThemeChange} /> */}
+          </Toolbar>
+          <App darkState={darkState} />
+        </Route>
+        {/* </AppBar> */}
+        <section className='container'>
+          <Switch>
+            <Route exact path='/register' component={Register} />
+            <Route exact path='/login' component={Login} />
+          </Switch>
+        </section>
+      </ThemeProvider>
+    </Router>
   );
 };
 
