@@ -65,7 +65,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "http://localhost:5000/",
   "description": "<h2> Covid-19 Cases Tracker </h2>",
   "main": "server.js",
   "devDependencies": {
