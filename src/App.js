@@ -8,6 +8,10 @@ import Register from "./components/auth/Register";
 import styles from "./App.module.css";
 import DarkModeToggle from "react-dark-mode-toggle";
 
+// Redux
+import { Provider } from "react-redux";
+import store from "./store";
+
 import { fetchData } from "./api";
 import { Toolbar } from "@material-ui/core";
 //import Switch from "@material-ui/core/Switch";
@@ -49,39 +53,41 @@ const DarkModeToggler = () => {
   };
 
   return (
-    <Router>
-      <ThemeProvider theme={darkTheme}>
-        <NavbarComponent />
-        <CssBaseline />
-        <Route
-          exact
-          path='/'
-          component={AppBar}
-          className={styles.appbar}
-          position='static'
-        >
-          {/* <AppBar className={styles.appbar} position='static'> */}
-          <Toolbar>
-            <div className={styles.flexboxcontainer}>
-              <img src={imagesrc} className={styles.image} alt='COVID-19' />
-              <DarkModeToggle
-                checked={darkState}
-                onChange={handleThemeChange}
-              />
-            </div>
-            {/* <Switch checked={darkState} onChange={handleThemeChange} /> */}
-          </Toolbar>
-          <App darkState={darkState} />
-        </Route>
-        {/* </AppBar> */}
-        <section className='container'>
-          <Switch>
-            <Route exact path='/register' component={Register} />
-            <Route exact path='/login' component={Login} />
-          </Switch>
-        </section>
-      </ThemeProvider>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <ThemeProvider theme={darkTheme}>
+          <NavbarComponent />
+          <CssBaseline />
+          <Route
+            exact
+            path='/'
+            component={AppBar}
+            className={styles.appbar}
+            position='static'
+          >
+            {/* <AppBar className={styles.appbar} position='static'> */}
+            <Toolbar>
+              <div className={styles.flexboxcontainer}>
+                <img src={imagesrc} className={styles.image} alt='COVID-19' />
+                <DarkModeToggle
+                  checked={darkState}
+                  onChange={handleThemeChange}
+                />
+              </div>
+              {/* <Switch checked={darkState} onChange={handleThemeChange} /> */}
+            </Toolbar>
+            <App darkState={darkState} />
+          </Route>
+          {/* </AppBar> */}
+          <section className='container'>
+            <Switch>
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/login' component={Login} />
+            </Switch>
+          </section>
+        </ThemeProvider>
+      </Router>
+    </Provider>
   );
 };
 
