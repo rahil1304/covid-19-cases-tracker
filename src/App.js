@@ -2,9 +2,11 @@ import ReactGA from "react-ga";
 import React, { Component, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Cards, Chart, CountryPicker } from "./components";
-import NavbarComponent from "./components/Navbar";
+import NavbarComponent from "./components/layout/Navbar";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import Alert from "./components/layout/Alert";
+
 import styles from "./App.module.css";
 import DarkModeToggle from "react-dark-mode-toggle";
 
@@ -80,6 +82,7 @@ const DarkModeToggler = () => {
           </Route>
           {/* </AppBar> */}
           <section className='container'>
+            <Alert />
             <Switch>
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
