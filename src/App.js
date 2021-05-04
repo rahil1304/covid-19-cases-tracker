@@ -1,5 +1,5 @@
 import ReactGA from "react-ga";
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Cards, Chart, CountryPicker } from "./components";
 import NavbarComponent from "./components/layout/Navbar";
@@ -13,6 +13,8 @@ import DarkModeToggle from "react-dark-mode-toggle";
 // Redux
 import { Provider } from "react-redux";
 import store from "./store";
+import { loadUser } from "./actions/auth";
+import setAuthToken from "./utils/setAuthToken";
 
 import { fetchData } from "./api";
 import { Toolbar } from "@material-ui/core";
@@ -28,7 +30,15 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 ReactGA.initialize("UA-169325813-1");
 ReactGA.pageview("/homepage");
 
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
 const DarkModeToggler = () => {
+  useEffect(() => {
+    store.dispatch(loadUser);
+  }, []);
+
   const [darkState, setDarkState] = useState(false);
   const palletType = darkState ? "dark" : "light";
   const mainPrimaryColor = darkState ? "#212121" : "#EEEEEE";
