@@ -36,7 +36,7 @@ if (localStorage.token) {
 
 const DarkModeToggler = () => {
   useEffect(() => {
-    store.dispatch(loadUser);
+    store.dispatch(loadUser());
   }, []);
 
   const [darkState, setDarkState] = useState(false);
