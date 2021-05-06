@@ -1,8 +1,20 @@
 import ReactGA from "react-ga";
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Cards, Chart, CountryPicker } from "./components";
+import NavbarComponent from "./components/layout/Navbar";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Alert from "./components/layout/Alert";
+
 import styles from "./App.module.css";
 import DarkModeToggle from "react-dark-mode-toggle";
+
+// Redux
+import { Provider } from "react-redux";
+import store from "./store";
+import { loadUser } from "./actions/auth";
+import setAuthToken from "./utils/setAuthToken";
 
 import { fetchData } from "./api";
 import { Toolbar } from "@material-ui/core";
@@ -14,12 +26,19 @@ import final2 from "./images/final22.png";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { FadeTransform } from "react-animation-components";
 
 ReactGA.initialize("UA-169325813-1");
 ReactGA.pageview("/homepage");
 
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
 const DarkModeToggler = () => {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
   const [darkState, setDarkState] = useState(false);
   const palletType = darkState ? "dark" : "light";
   const mainPrimaryColor = darkState ? "#212121" : "#EEEEEE";
@@ -46,20 +65,42 @@ const DarkModeToggler = () => {
   };
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <AppBar className={styles.appbar} position='static'>
-        <Toolbar>
-          <div className={styles.flexboxcontainer}>
-            <img src={imagesrc} className={styles.image} alt='COVID-19' />
-            <DarkModeToggle checked={darkState} onChange={handleThemeChange} />
-          </div>
-
-          {/* <Switch checked={darkState} onChange={handleThemeChange} /> */}
-        </Toolbar>
-        <App darkState={darkState} />
-      </AppBar>
-    </ThemeProvider>
+    <Provider store={store}>
+      <Router>
+        <ThemeProvider theme={darkTheme}>
+          <NavbarComponent />
+          <CssBaseline />
+          <Route
+            exact
+            path='/'
+            component={AppBar}
+            className={styles.appbar}
+            position='static'
+          >
+            {/* <AppBar className={styles.appbar} position='static'> */}
+            <Toolbar>
+              <div className={styles.flexboxcontainer}>
+                <img src={imagesrc} className={styles.image} alt='COVID-19' />
+                <DarkModeToggle
+                  checked={darkState}
+                  onChange={handleThemeChange}
+                />
+              </div>
+              {/* <Switch checked={darkState} onChange={handleThemeChange} /> */}
+            </Toolbar>
+            <App darkState={darkState} />
+          </Route>
+          {/* </AppBar> */}
+          <section className='container'>
+            <Alert />
+            <Switch>
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/login' component={Login} />
+            </Switch>
+          </section>
+        </ThemeProvider>
+      </Router>
+    </Provider>
   );
 };
 

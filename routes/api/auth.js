@@ -7,6 +7,8 @@ const config = require("config");
 const { check, validationResult } = require("express-validator/check");
 
 const User = require("../../models/User");
+const cors = require("cors");
+router.use(cors());
 
 // @route    GET api/auth
 // @desc     Test route
