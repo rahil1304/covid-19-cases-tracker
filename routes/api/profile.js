@@ -5,6 +5,8 @@ const { check, validationResult } = require("express-validator/check");
 
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
+const cors = require("cors");
+router.use(cors());
 
 // @route    GET api/profile/me
 // @desc     Get current users profile
