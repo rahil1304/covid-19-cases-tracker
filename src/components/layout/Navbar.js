@@ -10,9 +10,13 @@ import { logout } from "../../actions/auth";
 const NavbarComponent = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <Nav className='ml-auto' href='#!' onClick={logout}>
+      <Navbar.Brand href='/dashboard'>
+        <i className='fas fa-user'> </i>
+        <span className='hide-sm'> Dashboard</span>
+      </Navbar.Brand>
       <Navbar.Brand href='/'>
         <i className='fas fa-sign-out-alt'></i>
-        <span className='hide-sm'>Logout</span>
+        <span className='hide-sm'> Logout</span>
       </Navbar.Brand>
     </Nav>
   );
