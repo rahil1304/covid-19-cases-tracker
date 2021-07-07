@@ -53,6 +53,7 @@ router.post(
       dob,
       country,
       city,
+      comments,
       symptomatic,
       symptoms,
       current,
@@ -71,6 +72,7 @@ router.post(
     if (dob) profileFields.dob = dob;
     if (country) profileFields.country = country;
     if (city) profileFields.city = city;
+    if (comments) profileFields.comments = comments;
     if (symptomatic) profileFields.symptomatic = symptomatic;
     if (current) profileFields.current = current;
     if (admitted) profileFields.admitted = admitted;
